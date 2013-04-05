@@ -3,8 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from sodaSite.polls.models import Poll, Choice
 from django.template import Context, loader
 from django.core.urlresolvers import reverse
-
-#shortcut
 from django.shortcuts import render, get_object_or_404
 
 def vote(request, poll_id):

@@ -16,5 +16,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/' , include('sodaSite.polls.urls', namespace='polls')),
+    url(r'^blog/' , include('sodaSite.blog.urls', namespace='blog')),
 
-)
+
+    )
