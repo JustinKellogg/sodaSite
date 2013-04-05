@@ -1,6 +1,6 @@
 __author__ = 'Justin'
 from django.conf.urls import patterns, url
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 from sodaSite.polls.models import Poll
 from sodaSite.polls import views
 urlpatterns = patterns('',
