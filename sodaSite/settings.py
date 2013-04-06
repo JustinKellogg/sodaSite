@@ -1,10 +1,11 @@
 # Django settings for sodaSite project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    # ('Justin Kellogg', 'justin.kellogg@mst.edu'),
 )
 
 MANAGERS = ADMINS
@@ -107,7 +108,7 @@ ROOT_URLCONF = 'sodaSite.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'sodaSite.wsgi.application'
 
-import os
+
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
@@ -122,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'sodaSite.blog',
     'sodaSite.polls',
+    'sodaSite.api'
 )
 
 # A sample logging configuration. The only tangible logging

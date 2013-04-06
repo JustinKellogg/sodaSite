@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/' , include('sodaSite.polls.urls', namespace='polls')),
     url(r'^blog/' , include('sodaSite.blog.urls', namespace='blog')),
+    url(r'^api/' , include('sodaSite.api.urls', namespace='api')),
 
 
     )

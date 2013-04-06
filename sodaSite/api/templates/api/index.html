@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Machines</title>
+</head>
+<body>
+<h1> {{ machine }}</h1>
+{% if machine_list %}
+    <ul>
+        {% for machine in machine_list %}
+        <li> {{ machine.machineID}} {{ machine.location }} </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No Machines are available</p>
+{% endif %}
+</body>
+</html>
