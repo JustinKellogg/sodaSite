@@ -1,4 +1,6 @@
 __pycache__/
+*/__pychache__/
+*/.idea
 *.log
 *.pot
 *.pyc

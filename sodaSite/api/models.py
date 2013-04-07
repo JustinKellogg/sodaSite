@@ -5,6 +5,8 @@ from datetime import datetime
 from django.core.mail import send_mail
 
 # Create your models here.
+
+
 class Machine(models.Model):
     location = models.CharField(max_length=100, unique=True,
                                 help_text="describes where the machine is. (Building Floor) ex: CS 1")
@@ -13,7 +15,8 @@ class Machine(models.Model):
     Admin = models.ForeignKey(AuthUser)
 
     def __str__(self):
-        return str(self.id) + str(self.lastContact)
+        return str(self.id)
+
 
 class InventorySlot(models.Model):
     amount = models.IntegerField(default=0)
@@ -21,11 +24,13 @@ class InventorySlot(models.Model):
     Machine = models.ForeignKey(Machine)
 
     def __str__(self):
-        return "Slot %d: %d units of %s" % (self.id, self.amount, self.soda.name)
+        return "Slot %d: %d units of %s" % (self.id, self.amount, self.sodaType)
+
 
 class Client(models.Model):
     auth_key = models.CharField(max_length=200)
     name = models.CharField(max_length=30,primary_key=True)
+
 
 class MachineUser(models.Model):
     User = models.ForeignKey(AuthUser,primary_key=True)
@@ -34,6 +39,7 @@ class MachineUser(models.Model):
 
     def __str__(self):
         return self.User.username
+
 
 class Soda(models.Model):
     name = models.CharField(max_length=10, choices=SODA_TYPE_CHOICES)
@@ -55,17 +61,20 @@ class Transaction(models.Model):
     class Meta:
         ordering = ['-date_time']
 
+
 class AdminTransaction(Transaction):
     Admin = models.ForeignKey(AuthUser)
 
     def __str__(self):
         return self.Admin.first_name,"did something to", str(self.User.studentID)
 
+
 class SodaTransaction(Transaction):
     Soda = models.ForeignKey(Soda)
 
     def __str__(self):
         return str(self.User.studentID), "bought a ", Soda.name
+
 
 class Discount(models.Model):
     name = models.CharField(max_length="200")
