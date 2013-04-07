@@ -110,7 +110,7 @@ ROOT_URLCONF = 'sodaSite.urls'
 WSGI_APPLICATION = 'sodaSite.wsgi.application'
 
 
-TEMPLATE_DIRS = os.path.join(os.path.dirname(__file__), 'templates') # (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
+TEMPLATE_DIRS = os.path.join(os.path.dirname(__file__), 'templates')
 
 INSTALLED_APPS = (
     'sodaSite.home',
