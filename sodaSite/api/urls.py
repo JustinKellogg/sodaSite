@@ -7,7 +7,7 @@ from sodaSite.api.models import *
 urlpatterns = patterns('',
     url(r'^$',
         ListView.as_view(
-            queryset=Machine.objects.order_by('machineID'),
+            queryset=Machine.objects.order_by('id'),
             context_object_name='machine_list',
             template_name='api/index.html'),
         name = 'index'),

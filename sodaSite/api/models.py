@@ -9,24 +9,19 @@ class Machine(models.Model):
     location = models.CharField(max_length=100, unique=True,
                                 help_text="describes where the machine is. (Building Floor) ex: CS 1")
     heatGood = models.BooleanField()
-    machineID = models.IntegerField(primary_key=True)
     lastContact = models.DateTimeField(auto_now_add=True, help_text="Tells last time machine contacted Database.")
     Admin = models.ForeignKey(AuthUser)
 
     def __str__(self):
-        return str(self.machineID)
+        return str(self.id) + str(self.lastContact)
 
 class InventorySlot(models.Model):
-    slotID = models.IntegerField(primary_key=True)
-    amount = models.IntegerField()
-    sodaType = models.CharField(max_length=20)
+    amount = models.IntegerField(default=0)
+    sodaType = models.CharField(max_length=10, choices=SODA_TYPE_CHOICES)
     Machine = models.ForeignKey(Machine)
 
-    class Meta:
-        ordering = ['slotID']
-
     def __str__(self):
-        return "Slot %d: %d units of %s" % (self.slotID, self.amount, self.soda.name)
+        return "Slot %d: %d units of %s" % (self.id, self.amount, self.soda.name)
 
 class Client(models.Model):
     auth_key = models.CharField(max_length=200)
@@ -41,7 +36,7 @@ class MachineUser(models.Model):
         return self.User.username
 
 class Soda(models.Model):
-    name = models.CharField(max_length=5, choices=SODA_TYPE_CHOICES)
+    name = models.CharField(max_length=10, choices=SODA_TYPE_CHOICES)
     sugar = models.IntegerField(help_text="measured in grams")
     calories = models.IntegerField()
     description = models.CharField(max_length=200)

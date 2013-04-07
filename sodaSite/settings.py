@@ -123,7 +123,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'sodaSite.blog',
     'sodaSite.polls',
-    'sodaSite.api'
+    'sodaSite.api',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
