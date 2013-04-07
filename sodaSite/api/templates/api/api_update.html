@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> API Update</title>
+    <style type="text/css">
+        body {
+            magin: 30px;
+            font-family: sans-serif;
+            background: #fff;
+        }
+        h1 { background: #ccf; padding: 20px; }
+        div.update { width: 100%; padding: 5px: }
+            div.even { background: #ddd }
+        div.timestamp { float: left; padding-left: 10px }
+        div.clear { clear: both; height: 1px }
+    </style>
+</head>
+<body>
+ <h1> Welcome to the API update, think this is what I want </h1>
+    <p> This will automatically refresh each minute with new content - please <b> do not </b> reload the page</p>
+
+    {% if object_list %}
+        <div id=" update-holder">
+        {% for object in object_list %}
+            <div class="update {% cycle even, odd %}"id="{{ object.id }}">
+                <div class="timestamp">
+                    {{object.date_time | date:"Y-m-d H:i:s" }}
+                </div>
+                <div class="text">
+                    {{ object.description |linebreaksbr }}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p> No updates yet -- please come back later</p>
+    {% endif %}
+</body>
+</html>

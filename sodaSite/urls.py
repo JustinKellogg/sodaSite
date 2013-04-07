@@ -14,10 +14,12 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+    url(r'^', include('sodaSite.home.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/' , include('sodaSite.polls.urls', namespace='polls')),
     url(r'^blog/' , include('sodaSite.blog.urls', namespace='blog')),
     url(r'^api/' , include('sodaSite.api.urls', namespace='api')),
+    url(r'^home/' , include('sodaSite.home.urls', namespace='home')),
 
 
     )
