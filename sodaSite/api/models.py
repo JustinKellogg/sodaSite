@@ -9,7 +9,7 @@ class Machine(models.Model):
     location = models.CharField(max_length=100, unique=True,
                                 help_text="describes where the machine is. (Building Floor) ex: CS 1")
     heatGood = models.BooleanField()
-    lastContact = models.DateTimeField(auto_now_add=True, help_text="Tells last time machine contacted Database.")
+    lastContact = models.DateTimeField(help_text="Tells last time machine contacted Database.")
     Admin = models.ForeignKey(AuthUser)
 
     def __str__(self):
