@@ -5,7 +5,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Justin Kellogg', 'justin.kellogg@mst.edu'),
+     ('Justin Kellogg', 'justin.kellogg@mst.edu'),
 )
 
 MANAGERS = ADMINS
@@ -109,6 +109,14 @@ ROOT_URLCONF = 'sodaSite.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'sodaSite.wsgi.application'
 
+#example use:
+# from django.core.mail import send_mail
+# send_mail('test email2','hello world','sodaacm@gmail.com',['jdk998@mst.edu'])
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sodaacm@gmail.com'
+EMAIL_HOST_PASSWORD = 'SodaMachine'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 TEMPLATE_DIRS = os.path.join(os.path.dirname(__file__), 'templates')
 
