@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "blog.blogpost", "fields": {"body": "Here I am...adding initial data.", "timestamp": "2013-04-09T16:54:31Z", "title": "Providing Initial Data"}}, {"pk": 2, "model": "blog.blogpost", "fields": {"body": "But when I do, I only want to do it once. ", "timestamp": "2013-04-09T16:55:02Z", "title": "I don't always add initial data"}}]
