@@ -6,6 +6,8 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
      ('Justin Kellogg', 'justin.kellogg@mst.edu'),
+     #Account password is SodaMachine
+     ('SodaACM','sodaacm@gmail.com'),
 )
 
 MANAGERS = ADMINS
