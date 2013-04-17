@@ -6,3 +6,4 @@ from django.template import *
 
 def HomePageView(request):
     return render(request, 'home/home.html')
+

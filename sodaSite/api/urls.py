@@ -10,8 +10,11 @@ urlpatterns = patterns('',
             queryset=Machine.objects.order_by('id'),
             context_object_name='machine_list',
             template_name='api/index.html'),
-        name = 'index'),
+        name='index'),
+#    url(r'^transactions/$', 'sodaSite.api.views.transactions', name='transactions')
+    url(r'^transactions/(?P<soda_id>\d+)/(?P<stid>\d+)/$', 'sodaSite.api.views.transactions', name='transactions')
 )
-
+#r'^(?P<poll_id>\d+)/vote/$'
+#url(r'^articles/(?P<year>\d{4})/(?P<month>\d{2})/$', 'news.views.month_archive'),
 
 
