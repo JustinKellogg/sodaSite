@@ -55,7 +55,7 @@ class Soda(models.Model):
     description = models.CharField(max_length=200)
     Slot = models.ForeignKey(InventorySlot)
     cost = models.IntegerField(help_text="Measured in pennies. ex: 100 = $1")
-
+#expiration date
     def __str__(self):
         return self.name
 
