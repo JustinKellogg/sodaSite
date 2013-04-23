@@ -4,7 +4,7 @@ from sodaSite.api.models import *
 from django.shortcuts import get_object_or_404, render
 from datetime import datetime, timedelta
 from django.core.mail import send_mail
-from django.utils import simplejson
+from django.utils import simplejson, timezone
 
 
 def transactions(request, soda_id, stid):
@@ -56,8 +56,10 @@ def ping_machine(request, m_id):
 
 
 def check_machine(request):
+    response = {}
     machines = Machine.objects.all()
     for machine in machines:
-        if machine.lastContact < timedelta(minutes=10):
+        if machine.lastContact < timezone.now() - timedelta(minutes=10):
             send_mail('Machine down',"Machine %i at %s is out of contact" % (machine.id, machine.location),'sodaacm@gmail.com',['justin.kellogg@mst.edu'])
-    return
+            response = {'result':'failure', 'error': 'Machine out of contact'}
+    return HttpResponse(simplejson.dumps(response), mimetype='application/json')
