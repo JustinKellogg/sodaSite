@@ -1,6 +1,7 @@
 # Create your views here.
 from sodaSite.api.models import *
 from django.http import HttpResponse
+from sodaSite.api.sodaTypes import SODA_TYPE_CHOICES, TYPE_DICT
 from django.utils import simplejson, timezone
 from pychart import *
 from django.template import loader, Context
@@ -12,8 +13,8 @@ def example(request):
 
 
 def salesByType(request):
-   # dewSales = SodaTransaction.objects.filter(Soda__name=soda_type)
-    data = {'data' : }
+    dewSales = SodaTransaction.objects.filter(Soda__name=TYPE_DICT[1])
+    data = {'data': 'stuff'}
     return render_to_response("chart/example.html")
 
 
