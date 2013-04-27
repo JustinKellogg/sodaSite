@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Chart Index</title>
 </head>
 <body>
-
+<h1> hello world </h1>
+{% if sales_list %}
+    <ul>
+        {% for sale in sales_list %}
+            <li>{{ sale.description }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No sales are available.</p>
+{% endif %}
 </body>
 </html>
+
+

@@ -57,8 +57,7 @@ def ping_machine(request, m_id):
 
 def check_machine(request):
     response = {}
-    machines = Machine.objects.all()
-    for machine in machines:
+    for machine in Machine.objects.all():
         if machine.lastContact < timezone.now() - timedelta(minutes=10):
             send_mail('Machine down',"Machine %i at %s is out of contact" % (machine.id, machine.location),'sodaacm@gmail.com',['justin.kellogg@mst.edu'])
             response = {'result':'failure', 'error': 'Machine out of contact'}

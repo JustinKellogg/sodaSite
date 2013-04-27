@@ -20,5 +20,6 @@ urlpatterns = patterns('',
                        url(r'^polls/', include('sodaSite.polls.urls', namespace='polls')),
                        url(r'^blog/', include('sodaSite.blog.urls', namespace='blog')),
                        url(r'^api/', include('sodaSite.api.urls', namespace='api')),
+                       url(r'^chart/', include('sodaSite.chart.urls', namespace='chart')),
                        url(r'^home/', include('sodaSite.home.urls', namespace='home')),
 )
