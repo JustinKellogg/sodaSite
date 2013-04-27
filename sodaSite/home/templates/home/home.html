@@ -4,12 +4,10 @@
     <title>Home</title>
     <script type="text/javascript" src="../../../static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            alert("I'm working!");
-        });
        setInterval(function(){
+           jQuery.get("../../../api/check");
            alert("Wait for it....");
-       }, 1000*60 *.5);
+       }, 1000*60 *.25);
     </script>
 </head>
 <body>

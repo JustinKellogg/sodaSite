@@ -21,4 +21,5 @@ urlpatterns = patterns('',
                        url(r'^blog/', include('sodaSite.blog.urls', namespace='blog')),
                        url(r'^api/', include('sodaSite.api.urls', namespace='api')),
                        url(r'^home/', include('sodaSite.home.urls', namespace='home')),
+                       url(r'^inventory/', include('sodaSite.inventory.urls', namespace='inventory')),
 )

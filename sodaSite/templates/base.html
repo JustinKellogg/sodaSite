@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+{% block navbar %}
+
+  <p>this is the navbar</p>
+  
+  <a href="{% url 'inventory:index' %}">
+  inventory<br/>
+  </a>
+  
+  <a href="{% url 'blog:index' %}">
+  announcements<br/>
+  </a>
+
+{% endblock navbar %}
+
+
+{% block stuff %}
+{% endblock stuff %}
+
+</html>

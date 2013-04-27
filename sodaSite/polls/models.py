@@ -9,7 +9,7 @@ class Poll(models.Model):
     def __str__(self):
         return self.question
     def was_published_recently(self):
-        return timezone.now()- datetime.timedelta(days=1) <= self.pub_date <= timezone.now()
+        return timezone.now() - datetime.timedelta(days=1) <= self.pub_date <= timezone.now()
 
     was_published_recently.admin_order_field = 'pub_date'
     was_published_recently.boolean = True
