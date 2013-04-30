@@ -5,8 +5,7 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
-      data_from_django = {{ sales|safe }};
-      temp = data_from_django["Mushrooms"]
+      djangoData = {{ sales|safe }};
 
       // Load the Visualization API and the piechart package.
       google.load('visualization', '1.0', {'packages':['corechart']});
@@ -23,10 +22,11 @@
 
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
-        var temp = new Array()
-        for(var i in data_from_django) if (data_from_django.hasOwnProperty(i))
+        var temp = [];
+        for(var i in djangoData) if (djangoData.hasOwnProperty(i))
         {
-            temp.push([i,data_from_django[i]]);
+            if(i != 'Title')
+                temp.push([i,djangoData[i]]);
         }
         data.addRows(temp);
 /*        data.addRows([
@@ -38,7 +38,7 @@
         ]);
 */
         // Set chart options
-        var options = {'title':'How Much Pizza I Ate Last Night',
+        var options = {'title':djangoData['Title'],
                        'width':400,
                        'height':300};
 
