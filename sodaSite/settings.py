@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'sodaSite.polls',
     'sodaSite.api',
     'sodaSite.inventory',
+    'sodaSite.chart',
     'south',
 )
 
