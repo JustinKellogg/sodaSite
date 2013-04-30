@@ -1,10 +1,10 @@
 # Create your views here.
 from sodaSite.api.models import *
-from django.http import HttpResponse
-from sodaSite.api.sodaTypes import SODA_TYPE_CHOICES, TYPE_DICT
+from sodaSite.api.sodaTypes import TYPE_DICT
 from django.utils import simplejson, timezone
 from django.shortcuts import render_to_response
-
+import datetime
+from django.utils import timezone
 
 def example(request):
     sales = {'Title': 'pizza example', 'Mushrooms': 55, 'Onions': 13, 'Olives': 15, 'Zucchini': 31, 'Pepperoni': 2, 'Cheese': 44}
@@ -24,7 +24,14 @@ def salesByType(request):
 
 
 def salesByTime(request):
-    pass
+    title = "Sales by Time"
+    allTrans = SodaTransaction.objects.all()
+    today = len([soda for soda in allTrans if soda.timeWindow(0, 1)])
+    yesterday = len([soda for soda in allTrans if soda.timeWindow(1, 2)])
+    prior = len([soda for soda in allTrans if soda.timeWindow(2, 100)])
+    sales = {'Title': title, 'today': today, 'yesterday': yesterday, 'prior': prior}
+    sales = simplejson.dumps(sales)
+    return render_to_response("chart/pieChart.html", {'sales': sales})
 
 
 def salesByMachine(request):

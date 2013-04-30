@@ -1,10 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User as AuthUser
 from sodaSite.api.sodaTypes import SODA_TYPE_CHOICES
-from datetime import datetime
-from django.core.mail import send_mail
-
-# Create your models here.
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 
 class Machine(models.Model):
@@ -82,6 +80,10 @@ class SodaTransaction(Transaction):
 
     def __str__(self):
         return self.description
+
+    def timeWindow(self, startTime, endTime):
+#        return True
+        return timezone.now() - timedelta(days=startTime) >= self.date_time > timezone.now() - timedelta(days=endTime)
 
 
 class Discount(models.Model):

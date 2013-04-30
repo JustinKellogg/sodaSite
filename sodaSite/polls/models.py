@@ -6,8 +6,10 @@ from django.utils import timezone
 class Poll(models.Model):
     question = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+
     def __str__(self):
         return self.question
+
     def was_published_recently(self):
         return timezone.now() - datetime.timedelta(days=1) <= self.pub_date <= timezone.now()
 

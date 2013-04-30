@@ -17,5 +17,6 @@ urlpatterns = patterns('',
         template_name='chart/detail.html'),
         name='detail'),
     url(r'^type/$', 'sodaSite.chart.views.salesByType', name='type'),
-    url(r'^example/$', 'sodaSite.chart.views.example',name='example'),
+    url(r'^example/$', 'sodaSite.chart.views.example', name='example'),
+    url(r'^time/$', 'sodaSite.chart.views.salesByTime', name='time'),
     )
