@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block stuff %}
+<head>
+  <title>Purchase</title>
+</head>
+
+<body>
+  <a href="{% url 'purchase:logout' %}">
+  logout <br/>
+  </a>
+  
+  Funds: {{ user.funds }} pennies<br/><br/><br/>
+  
+  {% if purchase %}
+    <strong>{{ purchase }}</strong><br/>
+  {% endif %}
+  
+  <form action="{% url 'purchase:buy' %}" method="post">
+    {% csrf_token %}
+    
+    {% for machine in machine_list %}
+      {% for inventoryslot in machine.inventoryslot_set.all %}
+        {% if inventoryslot.amount > 0 %}
+          <input type="radio" name="slot" id="{{ forloop.counter }}" value="{{ inventoryslot.id }}">
+            <strong>machine:</strong> {{ machine.location }}
+            <strong>soda:</strong> {{ inventoryslot.sodaType }}
+            <strong>cost:</strong> {{ inventoryslot.soda_set.all.0.cost }}<br/>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    
+    <input type="submit" value="Submit"/>
+  </form>
+  
+  
+  
+</body>
+
+{% endblock stuff %}

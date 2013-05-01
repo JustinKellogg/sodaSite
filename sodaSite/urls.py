@@ -23,4 +23,5 @@ urlpatterns = patterns('',
                        url(r'^chart/', include('sodaSite.chart.urls', namespace='chart')),
                        url(r'^home/', include('sodaSite.home.urls', namespace='home')),
                        url(r'^inventory/', include('sodaSite.inventory.urls', namespace='inventory')),
+                       url(r'^purchase/', include('sodaSite.purchase.urls', namespace='purchase')),
 )
