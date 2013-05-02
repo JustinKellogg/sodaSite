@@ -56,10 +56,8 @@ def buy(request):
     if slot.amount < 1:
         send_mail('Out of Stock', "Slot %i of Machine %i has %i sodas left" % (slot.id, slot.Machine.id, slot.amount),
                  'sodaacm@gmail.com', ['jdk998@mst.edu'])           
-    trans = SodaTransaction(amount=soda.cost, date_time=datetime.now(), description=desc,
+    trans = SodaTransaction.objects.create(amount=soda.cost, date_time=datetime.now(), description=desc,
                 User=muser, Soda=soda)
-    trans.save()
-    soda.delete()
     return render_to_response('purchase/index.html',
     {'user': muser, 'machine_list': Machine.objects.all(),
     'purchase': "Soda successfully purchased"},
