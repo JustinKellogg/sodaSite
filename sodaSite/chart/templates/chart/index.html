@@ -1,19 +1,15 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 <html>
 <head>
-    <title>Chart Index</title>
+    {% block title %} Chart Index {% endblock %}
 </head>
 <body>
-<h1> hello world </h1>
-{% if sales_list %}
-    <ul>
-        {% for sale in sales_list %}
-            <li>{{ sale.description }}</li>
-        {% endfor %}
+{% block content %}
+<h1> Chart Page </h1>
     </ul>
-{% else %}
-    <p>No sales are available.</p>
-{% endif %}
+    <ul> <a href="{% url 'chart:type' %}">Type</a> </ul>
+    <ul> <a href="{% url 'chart:time' %}">Time</a> </ul>
+{% endblock %}
 </body>
 </html>
 

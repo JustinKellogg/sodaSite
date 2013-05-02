@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block stuff %}
+<head>
+  <title>Inventory</title>
+</head>
+
+<body>
+{% if machine_list %}
+  <ul>
+    {% for machine in machine_list %}
+    <li>{{machine.location}}
+        <table border=1>
+          <tr>
+            <th>Slot</th>
+            <th>Soda Type</th>
+            <th>Amount</th>
+            <th>Cost (cents)</th>
+          </tr>
+          
+          {% for inventoryslot in machine.inventoryslot_set.all %}
+            <tr>
+              <td>{{inventoryslot.id}}</td>
+              <td>{{inventoryslot.sodaType}}</td>
+              <td>{{inventoryslot.amount}}</td>
+              <td>{{inventoryslot.soda_set.all.0.cost}}</td>
+            </tr>
+          {% endfor %}
+          
+        </table>
+          
+    </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No machines are available</p>
+{% endif %}
+</body>
+{% endblock stuff %}

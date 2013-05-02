@@ -3,9 +3,10 @@
 
 {% block navbar %}
 
-  <p>this is the navbar</p>
+  <title>{% block title %} Home {% endblock %}</title>
+  <p>{% block text%} Home {% endblock %}</p>
   
-  <a href="{% url 'inventory:index' %}">
+  <a href="{% url 'home:index' %}">
   inventory<br/>
   </a>
   
@@ -17,11 +18,18 @@
   purchase<br/>
   </a>
 
+  <a href="{% url 'chart:index' %}">
+  chart<br/>
+  </a>
+
   <br/><br/>
 {% endblock navbar %}
 
 
 {% block stuff %}
 {% endblock stuff %}
-
+<body>
+{% block content %}
+{% endblock %}
+</body>
 </html>
