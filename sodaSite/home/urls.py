@@ -1,5 +1,5 @@
 __author__ = 'Justin'
-from django.conf.urls import  patterns, url
+from django.conf.urls import patterns, url
 from django.views.generic import ListView
 from sodaSite.home import views
 from sodaSite.api.models import Machine, Transaction

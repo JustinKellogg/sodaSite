@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponse
 from sodaSite.api.models import *
 from django.core.mail import send_mail
+from sodaSite.settings import ADMINS
+
 
 def my_login(request):
   username = request.POST['username']
@@ -55,7 +56,7 @@ def buy(request):
     slot.Machine.save(update_fields=['lastContact'])
     if slot.amount < 1:
         send_mail('Out of Stock', "Slot %i of Machine %i has %i sodas left" % (slot.id, slot.Machine.id, slot.amount),
-                 'sodaacm@gmail.com', ['jdk998@mst.edu'])           
+                 'sodaacm@gmail.com', [admin[1] for admin in ADMINS])
     trans = SodaTransaction.objects.create(amount=soda.cost, date_time=datetime.now(), description=desc,
                 User=muser, Soda=soda)
     return render_to_response('purchase/index.html',

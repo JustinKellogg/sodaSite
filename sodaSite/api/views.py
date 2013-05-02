@@ -1,11 +1,10 @@
 # Create your views here.
 from django.http import HttpResponse, Http404
 from sodaSite.api.models import *
-from django.shortcuts import get_object_or_404, render
 from datetime import datetime, timedelta
 from django.core.mail import send_mail
 from django.utils import simplejson, timezone
-
+from sodaSite.settings import ADMINS
 
 def transactions(request, soda_id, stid):
     #TODO: Check that request comes from raspberry pi's
@@ -59,6 +58,6 @@ def check_machine(request):
     response = {}
     for machine in Machine.objects.all():
         if machine.lastContact < timezone.now() - timedelta(minutes=10):
-            send_mail('Machine down',"Machine %i at %s is out of contact" % (machine.id, machine.location),'sodaacm@gmail.com',['justin.kellogg@mst.edu'])
+            send_mail('Machine down',"Machine %i at %s is out of contact" % (machine.id, machine.location),'sodaacm@gmail.com',[admin[1] for admin in ADMINS])
             response = {'result':'failure', 'error': 'Machine out of contact'}
     return HttpResponse(simplejson.dumps(response), mimetype='application/json')
