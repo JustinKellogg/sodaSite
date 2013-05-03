@@ -41,6 +41,22 @@ def salesByTime(request):
     return render_to_response("chart/LineChart.html", {'sales': sales})
 
 
+def sugarSales(request):
+    title = "Sugar per Soda"
+    X = 'Type'
+    Y = 'Sugar'
+    allTrans = SodaTransaction.objects.all()
+    MD = sum([trans.Soda.sugar for trans in allTrans if trans.Soda.name == 'MD'])
+    PS = sum([trans.Soda.sugar for trans in allTrans if trans.Soda.name == 'PS'])
+    CK = sum([trans.Soda.sugar for trans in allTrans if trans.Soda.name == 'CK'])
+    DP = sum([trans.Soda.sugar for trans in allTrans if trans.Soda.name == 'DP'])
+
+    sales = {'Title': title, 'X': X, 'Y': Y, 'MD': MD, 'PS': PS, 'CK': CK, 'DP': DP}
+    sales = simplejson.dumps(sales)
+    return render_to_response("chart/PieChart.html", {'sales': sales})
+
+
+
 def salesByMachine(request):
     pass
 
