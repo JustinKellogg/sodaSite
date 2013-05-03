@@ -4,7 +4,7 @@ sodaSite
 SODA website
 
 Uses:
-Python 2.7, Django 1.5, South 0.7.6, jQuery 1.9.1
+Python 2.7, Django 1.5, South 0.7.6, jQuery 1.9.1, Google Chart 1.0, HTML, JavaScript
 
 
 api: app that handles much of the communication with machines. Contains models used to interact with soda, machines, users and whatnot. 
