@@ -6,7 +6,9 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-
+from django.utils import timezone
+import datetime
+from sodaSite.api.models import *
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):

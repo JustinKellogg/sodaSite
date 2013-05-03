@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.utils import simplejson, timezone
 from sodaSite.settings import ADMINS
 
+
 def transactions(request, soda_id, stid):
     #TODO: Check that request comes from raspberry pi's
     soda = Soda.objects.get(id=soda_id)

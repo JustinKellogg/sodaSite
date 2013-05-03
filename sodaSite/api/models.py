@@ -17,7 +17,7 @@ class Machine(models.Model):
         ordering = ['-lastContact']
 
     def __str__(self):
-        return str(self.id)
+        return str(self.location)
 
 
 class InventorySlot(models.Model):

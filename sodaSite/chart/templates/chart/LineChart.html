@@ -28,25 +28,17 @@
         var temp = [];
         for(var i in djangoData) if (djangoData.hasOwnProperty(i))
         {
-            if(i != 'Title' && i != 'X' && i != 'Y')
+            if(i != "Title" && i != 'X' && i != 'Y')
                 temp.push([i,djangoData[i]]);
         }
         data.addRows(temp);
-/*        data.addRows([
-          ["Mushrooms",3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-         ['Pepperoni', 2]
-        ]);
-*/
         // Set chart options
         var options = {'title':djangoData['Title'],
                        'width':400,
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
 
