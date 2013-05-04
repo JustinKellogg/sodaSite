@@ -1,0 +1,25 @@
+{% extends "base-boot.html" %}
+
+{% block stuff %}
+<head>
+  <title>SODA Announcements</title>
+</head>
+
+<body>
+{% if blog_list %}
+  <ul>
+    {% for blogpost in blog_list %}
+      <li>
+        <strong>{{blogpost.title}}</strong><br/>
+        {{blogpost.body}}<br/>
+        {{blogpost.timestamp}}<br/>
+      </li>
+    {% endfor %}
+  </ul>
+  
+{% else %}
+  <p>There are no announcements</p>
+{% endif %}
+</body>
+
+{% endblock stuff %}

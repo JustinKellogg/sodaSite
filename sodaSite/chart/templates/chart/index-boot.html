@@ -1,0 +1,18 @@
+{% extends 'base-boot.html' %}
+<html>
+<head>
+    {% block title %} SODA Chart Index {% endblock %}
+</head>
+<body>
+{% block content %}
+<h1> Chart Page </h1>
+    </ul>
+    <ul> <a href="{% url 'chart:type' %}">Type</a> </ul>
+    <ul> <a href="{% url 'chart:time' %}">Time</a> </ul>
+    <ul> <a href="{% url 'chart:sugar' %}">Sugar</a> </ul>
+
+{% endblock %}
+</body>
+</html>
+
+
