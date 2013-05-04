@@ -37,19 +37,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">SODA</a>
+          <a class="brand" href="{% url 'home:index' %}">SODA</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-			  <li><a href="#announcements">Announcements</a></li>
-			  <li><a href="#inventory">Inventory</a></li>
+			  <li><a href="{% url 'blog:index' %}">Announcements</a></li>
+			  <li><a href="{% url 'home:index' %}">Inventory</a></li>
+              <li><a href="{% url 'purchase:index' %}">Purchase</a></li>
 			  <li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Metrics <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-				  <li><a href="#">By The Numbers</a></li>
-				  <li><a href="#">Histogram</a></li>
-				  <li><a href="#">Other Graphs</a></li>
+				  <li><a href=""{% url 'chart:index' %}"">Chart Index</a></li>
+				  <li><a href="#">Another Graph</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Custom</a></li>
+				  <!--<li><a href="#">Custom</a></li>-->
 				</ul>
 			  </li>
               <li><a href="#about">About</a></li>
