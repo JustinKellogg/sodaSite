@@ -6,7 +6,7 @@ from sodaSite.api.models import Machine, Transaction
 
 
 urlpatterns = patterns('',
-        url(r'^$', views.HomePageView,name='home'),
+        # url(r'^$', views.HomePageView,name='home'),
         url(r'^transactions/$',
             ListView.as_view(
                 queryset=Transaction.objects.order_by('-date_time')[:10],
@@ -14,7 +14,7 @@ urlpatterns = patterns('',
                 template_name='home/api_update.html'),
             name='api_update'),
 
-        url(r'^index/$',
+        url(r'^$',
             ListView.as_view(
                 queryset=Machine.objects.all,
                 context_object_name='machine_list',

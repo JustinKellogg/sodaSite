@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{% block navbar %}
+
   <head>
     <meta charset="utf-8">
     <title>SODA Base</title>
@@ -46,21 +49,15 @@
 			  <li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Metrics <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-				  <li><a href=""{% url 'chart:index' %}"">Chart Index</a></li>
-				  <li><a href="#">Another Graph</a></li>
+				  <li><a href="{% url 'chart:type' %}">By Type</a></li>
+          <li><a href="{% url 'chart:time' %}">By Time</a></li>
+          <li><a href="{% url 'chart:sugar' %}">By Sugar</a></li>
 				  <li class="divider"></li>
 				  <!--<li><a href="#">Custom</a></li>-->
 				</ul>
 			  </li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="{% url 'admin:index' %}">Admin</a></li>
             </ul>
-            <form class="navbar-form pull-right">
-			  <!-- NOTE: This should be toggled depending on user login status -->
-              <input class="span2" type="text" placeholder="Username">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -73,6 +70,11 @@
 
   </body>
   
+{% endblock navbar %}
+
+{% block stuff %}
+{% endblock stuff %}
+
   <hr>
   <footer>
     <p>&copy; Soda On Demand Always 2013</p>
