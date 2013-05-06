@@ -7,18 +7,22 @@
 
 <body>
 {% if blog_list %}
-  <ul>
-    {% for blogpost in blog_list %}
-      <li>
-        <strong>{{blogpost.title}}</strong><br/>
-        {{blogpost.body}}<br/>
-        {{blogpost.timestamp}}<br/>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="row">
+      <dl class="dl-horizontal">
+        {% for blogpost in blog_list %}
+          <dt>{{blogpost.title}}</dt><dd>{{blogpost.body}}<br>{{blogpost.timestamp}}</dd>
+        {% endfor %}
+      </dl>
+  </div>
   
 {% else %}
-  <p>There are no announcements</p>
+  <div class="row" align="center">
+    <div class="offset4 span4">
+      <div class="alert alert-info">
+        <strong>There are no announcements!</strong>
+      </div>
+    </div>
+  </div>
 {% endif %}
 </body>
 
