@@ -56,7 +56,6 @@ def sugarSales(request):
     return render_to_response("chart/PieChart.html", {'sales': sales})
 
 
-
 def salesByMachine(request):
     pass
 

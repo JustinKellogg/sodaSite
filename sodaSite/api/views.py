@@ -31,7 +31,7 @@ from sodaSite.settings import ADMINS
             # slot.Machine.save(update_fields=['lastContact'])
             # if slot.amount < 1:
                 # send_mail('Out of Stock', "Slot %i of Machine %i has %i sodas left" % (slot.id, slot.Machine.id, slot.amount),
-                         # 'sodaacm@gmail.com', ['jdk998@mst.edu'])
+                         # 'sodaacm@gmail.com', [admin[1] for admin in ADMINS])
             # trans = SodaTransaction(amount=soda.cost, date_time=datetime.now(), description=desc,
                         # User=user, Soda=soda)
             # trans.save()
@@ -43,7 +43,6 @@ from sodaSite.settings import ADMINS
     # else:
         # resp = {'result': 'Failure', 'error': 'Out of Money'}
         # return HttpResponse(simplejson.dumps(resp), mimetype='application/json')
-
 
 def ping_machine(request, m_id):
     try:
