@@ -7,18 +7,19 @@
 
 <body>
 {% if machine_list %}
-  <ul>
-    {% for machine in machine_list %}
-    <li>{{machine.location}}
-        <table border=1>
-          <tr>
-            <th>Slot</th>
-            <th>Soda Type</th>
-            <th>Amount</th>
-            <th>Cost (cents)</th>
-          </tr>
-          
-          {% for inventoryslot in machine.inventoryslot_set.all %}
+  <div class="row">
+    <div class="span5">
+      <ul>
+        {% for machine in machine_list %}
+        <li>{{machine.location}}
+          <table class="table table-striped table-bordered table-hover">
+            <tr>
+              <th>Slot</th>
+              <th>Soda Type</th>
+              <th>Amount</th>
+              <th>Cost (cents)</th>
+            </tr>
+            {% for inventoryslot in machine.inventoryslot_set.all %}
             <tr>
               <td>{{inventoryslot.id}}</td>
               <td>{{inventoryslot.sodaType}}</td>
@@ -26,12 +27,12 @@
               <td>{{inventoryslot.soda_set.all.0.cost}}</td>
             </tr>
           {% endfor %}
-          
-        </table>
-          
-    </li>
-    {% endfor %}
-  </ul>
+          </table>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 {% else %}
   <p>No machines are available</p>
 {% endif %}
